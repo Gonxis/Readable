@@ -41,10 +41,5 @@ node server
 * [React](https://es.reactjs.org/)
 * [Redux](https://es.redux.js.org/)
 * [Redux-Thunk](https://github.com/reduxjs/redux-thunk)
+* [Create React App](https://facebook.github.io/create-react-app/docs/getting-started)
 * And more coming soon...
-
-## Project created with Create React App
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
