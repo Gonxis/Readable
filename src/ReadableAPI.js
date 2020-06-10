@@ -1,6 +1,8 @@
-const api = process.env.NODE_ENV === 'development' ?
-    "http://localhost:3001" :
-    'https://readable-udacity-api.herokuapp.com'
+// const api = process.env.NODE_ENV === 'development' ?
+//     "http://localhost:3001" :
+//     'https://readable-udacity-api.herokuapp.com'
+
+const api = 'https://readable-udacity-api.herokuapp.com'
 
 let token = localStorage.token
 if (!token)
@@ -14,17 +16,17 @@ const headers = {
 export const getCategories = () =>
     fetch(`${api}/categories`, { headers })
     .then(res => res.json())
-    .then(data => data.categories)
+    .then(data => data)
 
 export const getCategoryPosts = (category) =>
-    fetch(`${api}/${category.id}/posts`, { headers })
+    fetch(`${api}/${category}/posts`, { headers })
     .then(res => res.json())
-    .then(data => data.category)
+    .then(data => data)
 
 export const getPosts = () =>
     fetch(`${api}/posts`, { headers })
     .then(res => res.json())
-    .then(data => data.posts)
+    .then(data => data)
 
 export const addPost = (post) =>
     fetch(`${api}/posts`, {
@@ -43,13 +45,13 @@ export const addPost = (post) =>
         })
     }).then(res => res.json())
 
-export const getPost = (post) =>
-    fetch(`${api}/posts/${post.id}`, { headers })
+export const getPost = (postId) =>
+    fetch(`${api}/posts/${postId}`, { headers })
     .then(res => res.json())
-    .then(data => data.post)
+    .then(data => data)
 
-export const votePost = (post, option) =>
-    fetch(`${api}/posts/${post.id}`, {
+export const votePost = (postId, option) =>
+    fetch(`${api}/posts/${postId}`, {
         method: 'POST',
         headers: {
             ...headers,
@@ -72,10 +74,9 @@ export const updatePost = (post) =>
             body: post.body
         })
     }).then(res => res.json())
-    .then(data => data.post)
 
-export const deletePost = (post) =>
-    fetch(`${api}/posts/${post.id}`, {
+export const deletePost = (postId) =>
+    fetch(`${api}/posts/${postId}`, {
         method: 'DELETE',
         headers: {
             ...headers,
@@ -87,10 +88,10 @@ export const deletePost = (post) =>
         })
     }).then(res => res.json())
 
-export const getCommentsPost = (post) =>
-    fetch(`${api}/posts/${post.id}/comments`, { headers })
+export const getCommentsPost = (postId) =>
+    fetch(`${api}/posts/${postId}/comments`, { headers })
     .then(res => res.json())
-    .then(data => data.post)
+    .then(data => data)
 
 export const addComment = (comment) =>
     fetch(`${api}/comments`, {
@@ -108,13 +109,13 @@ export const addComment = (comment) =>
         })
     }).then(res => res.json())
 
-export const getComment = (comment) =>
-    fetch(`${api}/comments/${comment.id}`, { headers })
+export const getComment = (commentId) =>
+    fetch(`${api}/comments/${commentId}`, { headers })
     .then(res => res.json())
-    .then(data => data.comment)
+    .then(data => data)
 
-export const voteComment = (comment, option) =>
-    fetch(`${api}/comments/${comment.id}`, {
+export const voteComment = (commentId, option) =>
+    fetch(`${api}/comments/${commentId}`, {
         method: 'POST',
         headers: {
             ...headers,
@@ -137,10 +138,9 @@ export const updateComment = (comment) =>
             body: comment.body
         })
     }).then(res => res.json())
-    .then(data => data.comment)
 
-export const deleteComment = (comment) =>
-    fetch(`${api}/comments/${comment.id}`, {
+export const deleteComment = (commentId) =>
+    fetch(`${api}/comments/${commentId}`, {
         method: 'DELETE',
         headers: {
             ...headers,
