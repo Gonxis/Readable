@@ -43,3 +43,5 @@ node server
 * [Redux-Thunk](https://github.com/reduxjs/redux-thunk)
 * [Create React App](https://facebook.github.io/create-react-app/docs/getting-started)
 * And more coming soon...
+
+I haddn't begin this project yet
